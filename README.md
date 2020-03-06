@@ -6,6 +6,11 @@
 - Framework : ExpressJS
 - DB: Firebase
 
+## URI
+
+- Staging : https://nodejs-cs1-chatapp-api-staging.herokuapp.com/
+- Production : https://nodejs-cs1-chatapp-api.herokuapp.com/
+
 ## Getting start
 
 ```bash
