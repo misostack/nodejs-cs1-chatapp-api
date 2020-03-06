@@ -11,6 +11,14 @@
 - Staging : https://nodejs-cs1-chatapp-api-staging.herokuapp.com/
 - Production : https://nodejs-cs1-chatapp-api.herokuapp.com/
 
+## Git flow
+
+- Read [the topic](https://medium.com/@mattia.battiston/why-i-love-trunk-based-development-641fcf0b94a0) about **trunk based development**
+
+```bash
+git push --set-upstream origin development
+```
+
 ## Getting start
 
 ```bash
@@ -33,6 +41,8 @@ yarn watch:dev
 ## Testing
 
 - https://jestjs.io/docs/en/getting-started.html
+
+- [Mock? What, When, How?](https://blog.codecentric.de/en/2018/03/mock-what-when-how/)
 
 ## Rules
 
