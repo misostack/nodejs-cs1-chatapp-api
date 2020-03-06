@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.sample
+node_modules
+dist-server
+yarn-error.log
+yarn.lock
+firebaseServiceAccountKey.json
+yarn.lock
+yarn-error.lock
+*.workspace
