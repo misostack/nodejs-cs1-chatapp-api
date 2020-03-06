@@ -19,12 +19,20 @@ do
 	fi
 done
 
-echo -e "Copy firebaseServiceAccountKey.sample.json to firebaseServiceAccountKey.json"
-cp "firebaseServiceAccountKey.sample.json" "firebaseServiceAccountKey.json"
-echo ".................................."
-echo "You must replace firebaseServiceAccountKey.json with your service account key in firebase console."
+firebaseServiceAccountKeyFile=firebaseServiceAccountKey.json
+
+if test -f $firebaseServiceAccountKeyFile; then
+	echo "$firebaseServiceAccountKeyFile already existed!"
+else 
+	echo -e "Copy firebaseServiceAccountKey.sample.json to firebaseServiceAccountKey.json"
+	cp "firebaseServiceAccountKey.sample.json" "firebaseServiceAccountKey.json"
+	echo ".................................."
+	echo "You must replace firebaseServiceAccountKey.json with your service account key in firebase console."
+fi
+
 echo "..............WARNING............."
 echo "To allow setup on heroku you must set these ENV params"
 cat $from
-echo "...............DONE..............."
+echo ""
+echo "..............DONE..............."
 echo ".................................."

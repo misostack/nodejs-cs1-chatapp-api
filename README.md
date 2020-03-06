@@ -45,4 +45,16 @@ FIREBASE_SERVICE_ACCOUNT=/mnt/e/code/ezcoder/cs1/nodejs/headfirst/chatapp/api/fi
 
 ```bash
 heroku login
+# app
+heroku run db_upgrade
+```
+
+**ENV CONFIG**
+
+```env
+APP_ENV=Heroku
+DEBUG=true
+GOOGLE_APPLICATION_CREDENTIALS={base64string}
+GAC_TYPE=string
+FIREBASE_DATABASE_NAME={DB_NAME}
 ```

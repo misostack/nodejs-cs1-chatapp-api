@@ -50,19 +50,20 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "setup": "node ./dist-server/bin/setup.js",
-    "setup:prod":"NODE_ENV=production npm-run-all build setup",
-    "setup:dev":"NODE_ENV=development npm-run-all build setup",    
-    "build": "npm-run-all clean transpile copy",
-    "server": "node ./dist-server/bin/www",
-    "dev": "NODE_ENV=development npm-run-all build server",
-    "prod": "NODE_ENV=production npm-run-all build server",
     "transpile": "babel ./server --out-dir dist-server",
     "copy:views": "cp -r ./server/views dist-server",
     "copy": "npm-run-all copy:views",
-    "clean": "rimraf dist-server",
-    "start": "nodemon",
-    "start:prod": "npm run prod",
+    "clean": "rimraf dist-server",        
+    "build": "npm-run-all clean transpile copy",
+    "firebase:config":"node ./dist-server/bin/fbconfig",
+    "build:prod": "NODE_ENV=production npm-run-all build",
+    "heroku-postbuild": "NODE_ENV=development npm-run-all clean transpile copy",    
+    "setup": "./setup.sh",
+    "setup:prod":"NODE_ENV=production npm-run-all build setup",
+    "setup:dev":"NODE_ENV=development npm-run-all build setup",    
+    "setup:firebase":"NODE_ENV=development npm-run-all build setup firebase:config",
+    "start": "NODE_ENV=production node ./dist-server/bin/www",
+    "dev": "nodemon",
     "test": "jest"
   }
 }
