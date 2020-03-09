@@ -8,7 +8,9 @@
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.6",
     "@babel/preset-env": "^7.8.6",
+    "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
@@ -25,7 +27,7 @@
     "jest": "^25.1.0"
   },
   "nodemonConfig": {
-    "exec": "npm run dev",
+    "exec": "yarn run dev",
     "watch": [
       "server/*",
       "public/*"
@@ -48,23 +50,25 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "verbose":true
+    "verbose": true
   },
   "scripts": {
     "transpile": "babel ./server --out-dir dist-server",
     "copy:views": "cp -r ./server/views dist-server",
     "copy": "npm-run-all copy:views",
-    "clean": "rimraf dist-server",        
+    "clean": "rimraf dist-server",
     "build": "npm-run-all clean transpile copy",
-    "firebase:config":"node ./dist-server/bin/fbconfig",
+    "firebase:config": "node ./dist-server/bin/fbconfig",
     "build:prod": "NODE_ENV=production npm-run-all build",
-    "heroku-postbuild": "NODE_ENV=development npm-run-all clean transpile copy",    
+    "heroku-postbuild": "NODE_ENV=development npm-run-all clean transpile copy",
     "setup": "./setup.sh",
-    "setup:prod":"NODE_ENV=production npm-run-all build setup",
-    "setup:dev":"NODE_ENV=development npm-run-all build setup",    
-    "setup:firebase":"NODE_ENV=development npm-run-all build setup firebase:config",
+    "setup:prod": "NODE_ENV=production npm-run-all build setup",
+    "setup:dev": "NODE_ENV=development npm-run-all build setup",
+    "setup:firebase": "NODE_ENV=development npm-run-all build setup firebase:config",
     "start": "NODE_ENV=production node ./dist-server/bin/www",
-    "dev": "nodemon",
+    "server": "node ./dist-server/bin/www",
+    "dev": "NODE_ENV=development npm-run-all build server",
+    "watch:dev": "nodemon",
     "test": "jest"
   }
 }

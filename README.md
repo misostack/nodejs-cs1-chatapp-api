@@ -73,3 +73,13 @@ GOOGLE_APPLICATION_CREDENTIALS={base64string}
 GAC_TYPE=string
 FIREBASE_DATABASE_NAME={DB_NAME}
 ```
+
+### REST API Design
+
+```bash
+
+```
+
+### Firebase Custom Auth
+
+- Official Doc : https://firebase.google.com/docs/auth/admin/create-custom-tokens

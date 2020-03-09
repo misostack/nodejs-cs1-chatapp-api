@@ -60,6 +60,14 @@ class FireBaseService {
 			.catch(err => reject(err))
 		})
 	}
+
+	static requestAuth(uid) {
+		return new Promise((resolve, reject) => {
+			admin.auth().createCustomToken(uid)
+		  .then(token => resolve(token))
+		  .catch(error => reject(error));
+		})
+	}
 }
 
 export default FireBaseService
