@@ -4,12 +4,12 @@ import { EnvironmentService } from './index'
 
 class LogService {
 	static logError(...messages){
-		console.error(`[ERROR]:${message}`)
+		console.error(`[ERROR]:${messages}`)
 	}
 
 	static logDebug(...messages){
 		if(EnvironmentService.get('DEBUG') === true){
-			console.debug(`[DEBUG]:${message}`)
+			console.debug(`[DEBUG]:${messages}`)
 		}
 	}	
 }
