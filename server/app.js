@@ -5,6 +5,8 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import {default as engine} from 'ejs-mate';
+import bodyParser from 'body-parser';
+import cors from 'cors';
 
 // dotenv
 import dotenv from 'dotenv'
@@ -21,12 +23,23 @@ import { FirebaseService } from './services';
 // routes
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';
+import {
+	nsAuth,
+	nsUsers,
+} from './api';
 
 var app = express();
 
 app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+// cors
+app.use(cors())
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
+
+// cookie
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 // view
@@ -39,5 +52,8 @@ FirebaseService.initializeApp();
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+app.use(`/api/users`, nsUsers);
+app.use(`/api/auth`, nsAuth);
 
 export default app;
