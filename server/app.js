@@ -26,6 +26,7 @@ import usersRouter from './routes/users';
 import {
 	nsAuth,
 	nsUsers,
+	nsPayment,
 } from './api';
 
 var app = express();
@@ -55,5 +56,6 @@ app.use('/users', usersRouter);
 
 app.use(`/api/users`, nsUsers);
 app.use(`/api/auth`, nsAuth);
+app.use(`/api/payment`, nsPayment);
 
 export default app;
