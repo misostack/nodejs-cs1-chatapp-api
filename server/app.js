@@ -27,6 +27,7 @@ import {
 	nsAuth,
 	nsUsers,
 	nsPayment,
+	nsService,
 } from './api';
 
 var app = express();
@@ -57,5 +58,6 @@ app.use('/users', usersRouter);
 app.use(`/api/users`, nsUsers);
 app.use(`/api/auth`, nsAuth);
 app.use(`/api/payment`, nsPayment);
+app.use(`/api/service`, nsService);
 
 export default app;
